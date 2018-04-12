@@ -3,8 +3,8 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 
 import booksJson from '../../books.json'
 import ToRead from './ToRead'
-// import Reading from './Reading'
-// import Read from './Read'
+import Reading from './Reading'
+import Read from './Read'
 // import Like from './Like'
 
 class App extends React.Component {
@@ -23,6 +23,16 @@ class App extends React.Component {
             <Route path='/' render={
               () => {
                 return <ToRead booksData={this.state.booksJson} />
+              }
+            } />
+            <Route exact path='/reading' render={
+              () => {
+                return <Reading booksData={this.state.booksJson} />
+              }
+            } />
+            <Route exact path='/read' render={
+              () => {
+                return <Read booksData={this.state.booksJson} />
               }
             } />
             {/* <Route exact path='/' component={Reading}/>

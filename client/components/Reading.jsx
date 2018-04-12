@@ -1,12 +1,12 @@
 import React from 'react'
 
-import books from '../../books.json'
+// import books from '../../books.json'
 import {Link} from 'react-router-dom'
 
 const Reading = (props) => {
   // const book = props.match.params.id
 
-  const getReadingList = books.filter(book => book.status === 2)
+  const getReadingList = props.booksData.books.filter(book => book.status === 2)
 
   return (
     <div className="books-reading">
@@ -16,7 +16,7 @@ const Reading = (props) => {
           return (
             <li key={book.id}>
               <Link to={`/book/${book.title}`}>
-                <h5>{book.title}</h5>
+                <h3>{book.title}</h3>
               </Link>
               <div className='info-container'>
                 {book.author}

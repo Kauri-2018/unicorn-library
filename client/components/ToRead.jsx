@@ -2,7 +2,7 @@ import React from 'react'
 
 const ToRead = (props) => {
   return (
-    <h1>ToReadList</h1>
+    <p>{props.booksData.books[0].title}</p>
   )
 }
 

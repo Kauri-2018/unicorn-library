@@ -19637,42 +19637,76 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(47);
 
-var _ToRead = __webpack_require__(76);
+var _books = __webpack_require__(76);
+
+var _books2 = _interopRequireDefault(_books);
+
+var _ToRead = __webpack_require__(77);
 
 var _ToRead2 = _interopRequireDefault(_ToRead);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 // import Reading from './Reading'
 // import Read from './Read'
 // import Like from './Like'
 
-var App = function App() {
-  return _react2.default.createElement(
-    _reactRouterDom.HashRouter,
-    null,
-    _react2.default.createElement(
-      'div',
-      { className: 'app' },
-      _react2.default.createElement(
-        'h1',
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    _classCallCheck(this, App);
+
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = { booksJson: _books2.default };
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        _reactRouterDom.HashRouter,
         null,
-        'Unicorn library'
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'home' },
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _ToRead2.default })
-      )
-    )
-  );
-};
+        _react2.default.createElement(
+          'div',
+          { className: 'app' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Unicorn library'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'home' },
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/', render: function render() {
+                return _react2.default.createElement(_ToRead2.default, { booksData: _this2.state.booksJson });
+              } })
+          )
+        )
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
 
 exports.default = App;
 
@@ -23389,6 +23423,12 @@ var withRouter = function withRouter(Component) {
 
 /***/ }),
 /* 76 */
+/***/ (function(module, exports) {
+
+module.exports = {"books":[{"id":1,"title":"Harry Potter","author":"J K Rowling","status":1,"like":true},{"id":2,"title":"War and Peace","author":"Leo Tolstoy","status":2,"like":false},{"id":3,"title":"Ulysses","author":"James Joyce","status":3,"like":true},{"id":4,"title":"Carpe Jugulum","author":"Terry Pratchett","status":1,"like":true},{"id":5,"title":"Stardust","author":"Neil Gaiman","status":2,"like":false},{"id":6,"title":"Booky Wook","author":"Russell Brand","status":3,"like":true},{"id":7,"title":"The Satanic Verses","author":"Salman Rushdie","status":1,"like":false},{"id":8,"title":"The Golden Compass","author":"Philip Pullman","status":2,"like":true},{"id":9,"title":"1984","author":"George Orwell","status":3,"like":false},{"id":10,"title":"The Kite Runner","author":"Khaled Hosseini","status":1,"like":true}]}
+
+/***/ }),
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23406,9 +23446,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var ToRead = function ToRead(props) {
   return _react2.default.createElement(
-    'h1',
+    'p',
     null,
-    'ToReadList'
+    props.booksData.books[0].title
   );
 };
 

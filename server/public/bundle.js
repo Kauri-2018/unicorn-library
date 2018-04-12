@@ -23524,6 +23524,11 @@ var Reading = function Reading(props) {
               'button',
               null,
               'Read'
+            ),
+            _react2.default.createElement(
+              'button',
+              null,
+              'Delete'
             )
           )
         );

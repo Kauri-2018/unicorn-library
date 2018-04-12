@@ -1,0 +1,74 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Harry Potter",
+      "author": "J K Rowling",
+      "status": 1,
+      "like": true
+    },
+    {
+      "id": 2,
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "status": 2,
+      "like": false
+    },
+    {
+      "id": 3,
+      "title": "Ulysses",
+      "author": "James Joyce",
+      "status": 3,
+      "like": true
+    },
+    {
+      "id": 4,
+      "title": "Carpe Jugulum",
+      "author": "Terry Pratchett",
+      "status": 1,
+      "like": true
+    },
+    {
+      "id": 5,
+      "title": "Stardust",
+      "author": "Neil Gaiman",
+      "status": 2,
+      "like": false
+    },
+    {
+      "id": 6,
+      "title": "Booky Wook",
+      "author": "Russell Brand",
+      "status": 3,
+      "like": true
+    },
+    {
+      "id": 7,
+      "title": "The Satanic Verses",
+      "author": "Salman Rushdie",
+      "status": 1,
+      "like": false
+    },
+    {
+      "id": 8,
+      "title": "The Golden Compass",
+      "author": "Philip Pullman",
+      "status": 2,
+      "like": true
+    },
+    {
+      "id": 9,
+      "title": "1984",
+      "author": "George Orwell",
+      "status": 3,
+      "like": false
+    },
+    {
+      "id": 10,
+      "title": "The Kite Runner",
+      "author": "Khaled Hosseini",
+      "status": 1,
+      "like": true
+    }
+  ]
+}

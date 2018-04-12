@@ -5,14 +5,13 @@ import booksJson from '../../books.json'
 import ToRead from './ToRead'
 import Reading from './Reading'
 import Read from './Read'
-// import Like from './Like'
+import Liked from './Liked'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {booksJson}
   }
-
 
   render () {
     return (
@@ -35,15 +34,17 @@ class App extends React.Component {
                 return <Read booksData={this.state.booksJson} />
               }
             } />
-            {/* <Route exact path='/' component={Reading}/>
-            <Route path='/list/:rank' component={Read}/>
-            <Route path='/rank/:rank/:name' component={Like}/> */}
+            <Route exact path='/liked' render={
+              () => {
+                return <Liked booksData={this.state.booksJson} />
+              }
+            } />
+
           </div>
         </div>
       </Router>
     )
   }
-  
 }
 
 export default App

@@ -23607,6 +23607,7 @@ var ToRead = function (_React$Component) {
               _react2.default.createElement(
                 'h5',
                 null,
+                'Author: ',
                 book.author
               ),
               _react2.default.createElement(
@@ -23734,6 +23735,7 @@ var Reading = function (_React$Component) {
               _react2.default.createElement(
                 "h5",
                 null,
+                "Author: ",
                 book.author
               ),
               _react2.default.createElement(
@@ -23779,6 +23781,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(47);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23807,7 +23811,7 @@ var Read = function (_React$Component) {
   }
 
   _createClass(Read, [{
-    key: "getReadList",
+    key: 'getReadList',
     value: function getReadList(booksArr) {
       var readArr = booksArr.filter(function (book) {
         return book.status === 3;
@@ -23815,7 +23819,7 @@ var Read = function (_React$Component) {
       return readArr;
     }
   }, {
-    key: "handleAdd",
+    key: 'handleAdd',
     value: function handleAdd(book) {
       var update = {
         id: book.id,
@@ -23825,42 +23829,43 @@ var Read = function (_React$Component) {
       this.props.updateStatus(update);
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var _this2 = this;
 
       var readList = this.getReadList(this.props.booksData.books);
       return _react2.default.createElement(
-        "div",
-        { className: "books-read" },
+        'div',
+        { className: 'books-read' },
         _react2.default.createElement(
-          "h2",
+          'h2',
           null,
-          "Books I have read:"
+          'Books I have read:'
         ),
         _react2.default.createElement(
-          "ul",
+          'ul',
           null,
           readList.map(function (book) {
             return _react2.default.createElement(
-              "div",
+              'div',
               { key: book.id },
               _react2.default.createElement(
-                "h3",
+                'h3',
                 null,
                 book.title
               ),
               _react2.default.createElement(
-                "h5",
+                'h5',
                 null,
+                'Author: ',
                 book.author
               ),
               _react2.default.createElement(
-                "button",
-                { className: "btn btn-margin", onClick: function onClick() {
+                'button',
+                { className: 'btn btn-margin', onClick: function onClick() {
                     return _this2.handleAdd(book);
                   } },
-                "Like"
+                'Like'
               )
             );
           })
@@ -23972,6 +23977,7 @@ var Liked = function (_React$Component) {
               _react2.default.createElement(
                 'h5',
                 null,
+                'Author: ',
                 book.author
               )
             );

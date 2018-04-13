@@ -43,7 +43,7 @@ class Reading extends React.Component {
             return (
               <div key={book.id}>
                 <h3>{book.title}</h3>
-                <h5>{book.author}</h5>
+                <h5>Author: {book.author}</h5>
                 <button onClick={() => this.handleAdd(book)}>
                   Add To Read
                 </button>

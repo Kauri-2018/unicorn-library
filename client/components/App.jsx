@@ -36,11 +36,11 @@ class App extends React.Component {
                 return <ToRead booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
               }
             } />
-            <Route exact path='/reading' render={
+            {/* <Route exact path='/reading' render={
               () => {
                 return <Reading booksData={this.state.booksJson} />
               }
-            } />
+            } /> */}
             <Route exact path='/read' render={
               () => {
                 return <Read booksData={this.state.booksJson} />
@@ -51,7 +51,6 @@ class App extends React.Component {
             <Route path='/rank/:rank/:name' component={Like}/> */}
           </div>
         </div>
-      </div>
     </Router>
     )
   }

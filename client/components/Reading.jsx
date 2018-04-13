@@ -1,34 +1,52 @@
 import React from 'react'
+// import {Link} from 'react-router-dom'
 
-// import books from '../../books.json'
-import {Link} from 'react-router-dom'
+class Reading extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      update: {
+        id: -1,
+        status: 0
+      }
+    }
+    this.handleAdd = this.handleAdd.bind(this)
+  }
 
-const Reading = (props) => {
-  // const book = props.match.params.id
+  getReadingList (booksArr) {
+    const readingArr = booksArr.filter(book => book.status === 2)
+    return readingArr
+  }
 
-  const getReadingList = props.booksData.books.filter(book => book.status === 2)
+  handleAdd (book) {
+    const update = {
+      id: book.id,
+      status: 3
+    }
+    this.props.updateStatus(update)
+  }
 
-  return (
-    <div className="books-reading">
-      <h2>Books I am reading:</h2>
-      <ul>
-        {getReadingList.map(book => {
-          return (
-            <li key={book.id}>
-              <Link to={`/book/${book.title}`}>
+  render () {
+    const readingList = this.getReadingList(this.props.booksData.books)
+    return (
+      <div className="books-reading">
+        <h2>Books I am reading:</h2>
+        <ul>
+          {readingList.map(book => {
+            return (
+              <div key={book.id}>
                 <h3>{book.title}</h3>
-              </Link>
-              <div className='info-container'>
-                {book.author}
-                {/* <button onClick={onClick}>Read</button>
-                <button onClick={onClick}>Delete</button> */}
+                <button onClick={() => this.handleAdd(book)}>
+                  Add To Read
+                </button>
+                <button>Del</button>
               </div>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
 }
 
 export default Reading

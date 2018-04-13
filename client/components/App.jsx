@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   addToList (newBook) {
-    newBook.id = this.state.booksJson.books.length + 1
+   newBook.id = this.state.booksJson.books.length + 1
     this.setState({
       booksJson: [...this.state.booksJson.books, newBook]
     })
@@ -57,8 +57,8 @@ class App extends React.Component {
                 return <NavBar />
               }
             } />
-            <div className="addbook">
-              <div className="theformbox">
+            <div className="body-container">
+              <div className="body-box">
 
                 <Route exact path='/' render={
                   () => {

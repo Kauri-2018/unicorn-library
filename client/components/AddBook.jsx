@@ -11,11 +11,13 @@ class AddBook extends React.Component {
     this.handleAdd = this.handleAdd.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
+  
   handleChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
+
   handleAdd (e) {
     e.preventDefault()
     this.props.addToList(this.state)

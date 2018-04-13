@@ -19661,11 +19661,15 @@ var _Read = __webpack_require__(79);
 
 var _Read2 = _interopRequireDefault(_Read);
 
-var _AddBook = __webpack_require__(80);
+var _Liked = __webpack_require__(80);
+
+var _Liked2 = _interopRequireDefault(_Liked);
+
+var _AddBook = __webpack_require__(81);
 
 var _AddBook2 = _interopRequireDefault(_AddBook);
 
-var _NavBar = __webpack_require__(81);
+var _NavBar = __webpack_require__(82);
 
 var _NavBar2 = _interopRequireDefault(_NavBar);
 
@@ -19678,9 +19682,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import Liked from './Liked'
-// import Like from './Like'
-
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -19766,10 +19767,16 @@ var App = function (_React$Component) {
                       deleteBook: _this2.deleteBook });
                   } }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/reading', render: function render() {
-                    return _react2.default.createElement(_Reading2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
+                    return _react2.default.createElement(_Reading2.default, {
+                      booksData: _this2.state.booksJson,
+                      updateStatus: _this2.updateStatus,
+                      deleteBook: _this2.deleteBook });
                   } }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/read', render: function render() {
                     return _react2.default.createElement(_Read2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
+                  } }),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/liked', render: function render() {
+                    return _react2.default.createElement(_Liked2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
                   } })
               )
             ),
@@ -23598,6 +23605,11 @@ var ToRead = function (_React$Component) {
                 book.title
               ),
               _react2.default.createElement(
+                'h5',
+                null,
+                book.author
+              ),
+              _react2.default.createElement(
                 'button',
                 { onClick: function onClick() {
                     return _this2.handleAdd(book);
@@ -23686,6 +23698,14 @@ var Reading = function (_React$Component) {
       this.props.updateStatus(update);
     }
   }, {
+    key: "handleDel",
+    value: function handleDel(book) {
+      var update = {
+        id: book.id
+      };
+      this.props.deleteBook(update);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -23712,6 +23732,11 @@ var Reading = function (_React$Component) {
                 book.title
               ),
               _react2.default.createElement(
+                "h5",
+                null,
+                book.author
+              ),
+              _react2.default.createElement(
                 "button",
                 { onClick: function onClick() {
                     return _this2.handleAdd(book);
@@ -23720,7 +23745,9 @@ var Reading = function (_React$Component) {
               ),
               _react2.default.createElement(
                 "button",
-                null,
+                { onClick: function onClick() {
+                    return _this2.handleDel(book);
+                  } },
                 "Del"
               )
             );
@@ -23824,6 +23851,11 @@ var Read = function (_React$Component) {
                 book.title
               ),
               _react2.default.createElement(
+                "h5",
+                null,
+                book.author
+              ),
+              _react2.default.createElement(
                 "button",
                 { className: "btn btn-margin", onClick: function onClick() {
                     return _this2.handleAdd(book);
@@ -23844,6 +23876,118 @@ exports.default = Read;
 
 /***/ }),
 /* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Liked = function (_React$Component) {
+  _inherits(Liked, _React$Component);
+
+  function Liked(props) {
+    _classCallCheck(this, Liked);
+
+    var _this = _possibleConstructorReturn(this, (Liked.__proto__ || Object.getPrototypeOf(Liked)).call(this, props));
+
+    _this.state = {
+      update: {
+        id: -1,
+        status: 0,
+        like: null
+      }
+    };
+    _this.handleAdd = _this.handleAdd.bind(_this);
+    return _this;
+  }
+
+  _createClass(Liked, [{
+    key: 'getLikeList',
+    value: function getLikeList(booksArr) {
+      var likeArr = booksArr.filter(function (book) {
+        return book.like === true;
+      });
+      return likeArr;
+    }
+  }, {
+    key: 'handleAdd',
+    value: function handleAdd(book) {
+      var update = {
+        id: book.id,
+        status: 3,
+        like: true
+      };
+      this.props.updateStatus(update);
+    }
+  }, {
+    key: 'handleDel',
+    value: function handleDel(book) {
+      var update = {
+        id: book.id
+      };
+      this.props.deleteBook(update);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      // make sure getLikeList called everytime rerender happened
+      var likeList = this.getLikeList(this.props.booksData.books);
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Books I liked: '
+        ),
+        _react2.default.createElement(
+          'ul',
+          null,
+          likeList.map(function (book) {
+            return _react2.default.createElement(
+              'div',
+              { key: book.id },
+              _react2.default.createElement(
+                'h3',
+                null,
+                book.title
+              ),
+              _react2.default.createElement(
+                'h5',
+                null,
+                book.author
+              )
+            );
+          })
+        )
+      );
+    }
+  }]);
+
+  return Liked;
+}(_react2.default.Component);
+
+exports.default = Liked;
+
+/***/ }),
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23965,7 +24109,7 @@ var AddBook = function (_React$Component) {
 exports.default = AddBook;
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -3,16 +3,16 @@ import React from 'react'
 // import books from '../../books.json'
 import {Link} from 'react-router-dom'
 
-const Reading = (props) => {
+const Liked = (props) => {
   // const book = props.match.params.id
 
-  const getReadingList = props.booksData.books.filter(book => book.status === 2)
+  const getBookList = props.booksData.books.filter(book => book.like === true)
 
   return (
-    <div className="books-reading">
-      <h2>Books I am reading:</h2>
+    <div className="books-liked">
+      <h2>Books I liked:</h2>
       <ul>
-        {getReadingList.map(book => {
+        {getBookList.map(book => {
           return (
             <li key={book.id}>
               <Link to={`/book/${book.title}`}>
@@ -20,8 +20,6 @@ const Reading = (props) => {
               </Link>
               <div className='info-container'>
                 {book.author}
-                <button onClick={}>Read</button>
-                <button onClick={onClick}>Delete</button>
               </div>
             </li>
           )
@@ -31,4 +29,4 @@ const Reading = (props) => {
   )
 }
 
-export default Reading
+export default Liked

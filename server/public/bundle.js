@@ -19674,10 +19674,24 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = { booksJson: _books2.default };
+    _this.updateStatus = _this.updateStatus.bind(_this);
     return _this;
   }
+  // updateData.id and updateData.status passed in
+
 
   _createClass(App, [{
+    key: 'updateStatus',
+    value: function updateStatus(targetBook) {
+      _books2.default.books.forEach(function (book) {
+        if (book.id === targetBook.id) {
+          book.status = targetBook.status;
+        }
+      });
+      // console.log(booksJson)
+      this.setState({ booksJson: _books2.default });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -19697,7 +19711,7 @@ var App = function (_React$Component) {
             'div',
             { className: 'home' },
             _react2.default.createElement(_reactRouterDom.Route, { path: '/', render: function render() {
-                return _react2.default.createElement(_ToRead2.default, { booksData: _this2.state.booksJson });
+                return _react2.default.createElement(_ToRead2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
               } })
           )
         )
@@ -23438,19 +23452,97 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ToRead = function ToRead(props) {
-  return _react2.default.createElement(
-    'p',
-    null,
-    props.booksData.books[0].title
-  );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ToRead = function (_React$Component) {
+  _inherits(ToRead, _React$Component);
+
+  function ToRead(props) {
+    _classCallCheck(this, ToRead);
+
+    var _this = _possibleConstructorReturn(this, (ToRead.__proto__ || Object.getPrototypeOf(ToRead)).call(this, props));
+
+    _this.state = {
+      update: {
+        id: -1,
+        status: 0
+      }
+    };
+    _this.handleAdd = _this.handleAdd.bind(_this);
+    return _this;
+  }
+
+  _createClass(ToRead, [{
+    key: 'getToReadList',
+    value: function getToReadList(booksArr) {
+      var toReadArr = booksArr.filter(function (book) {
+        return book.status === 1;
+      });
+      return toReadArr;
+    }
+  }, {
+    key: 'handleAdd',
+    value: function handleAdd(book) {
+      var update = {
+        id: book.id,
+        status: 2
+      };
+      this.props.updateStatus(update);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var toReadList = this.getToReadList(this.props.booksData.books);
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          toReadList.map(function (book) {
+            return _react2.default.createElement(
+              'div',
+              { key: book.id },
+              _react2.default.createElement(
+                'h3',
+                null,
+                book.title
+              ),
+              _react2.default.createElement(
+                'button',
+                { onClick: function onClick() {
+                    return _this2.handleAdd(book);
+                  } },
+                'Add To Reading'
+              ),
+              _react2.default.createElement(
+                'button',
+                null,
+                'Del'
+              )
+            );
+          })
+        )
+      );
+    }
+  }]);
+
+  return ToRead;
+}(_react2.default.Component);
 
 exports.default = ToRead;
 

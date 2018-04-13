@@ -19653,6 +19653,10 @@ var _ToRead = __webpack_require__(77);
 
 var _ToRead2 = _interopRequireDefault(_ToRead);
 
+var _AddBook = __webpack_require__(78);
+
+var _AddBook2 = _interopRequireDefault(_AddBook);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19660,10 +19664,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 // import Reading from './Reading'
 // import Read from './Read'
 // import Like from './Like'
+
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -19698,7 +19702,8 @@ var App = function (_React$Component) {
             { className: 'home' },
             _react2.default.createElement(_reactRouterDom.Route, { path: '/', render: function render() {
                 return _react2.default.createElement(_ToRead2.default, { booksData: _this2.state.booksJson });
-              } })
+              } }),
+            _react2.default.createElement(_AddBook2.default, null)
           )
         )
       );
@@ -23453,6 +23458,122 @@ var ToRead = function ToRead(props) {
 };
 
 exports.default = ToRead;
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AddBook = function (_React$Component) {
+    _inherits(AddBook, _React$Component);
+
+    function AddBook(props) {
+        _classCallCheck(this, AddBook);
+
+        var _this = _possibleConstructorReturn(this, (AddBook.__proto__ || Object.getPrototypeOf(AddBook)).call(this, props));
+
+        _this.state = {
+            title: '',
+            author: '',
+            status: 0
+        };
+        _this.handleAdd = _this.handleAdd.bind(_this);
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
+    }
+
+    _createClass(AddBook, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState(_defineProperty({}, e.target.name, e.target.value));
+        }
+    }, {
+        key: 'handleAdd',
+        value: function handleAdd(e) {
+            e.preventDefault();
+            this.props.addToList(this.state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'addbook' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'theformbox' },
+                    _react2.default.createElement(
+                        'form',
+                        { onSubmit: this.handleAdd },
+                        'Title: ',
+                        _react2.default.createElement('input', { name: 'title', onChange: this.handleChange }),
+                        'Author: ',
+                        _react2.default.createElement('input', { name: 'author', onChange: this.handleChange }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'dropdown' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'btn' },
+                                'Status'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'dropdown-content' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn-none', name: 'status', value: '1', href: '#', onClick: this.handleChange },
+                                    'To Read'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn-none', name: 'status', value: '2', href: '#', onClick: this.handleChange },
+                                    'Reading'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn-none', name: 'status', value: '3', href: '#', onClick: this.handleChange },
+                                    'Read'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'button',
+                            { className: 'btn' },
+                            'Submit'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return AddBook;
+}(_react2.default.Component);
+
+exports.default = AddBook;
 
 /***/ })
 /******/ ]);

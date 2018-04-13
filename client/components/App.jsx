@@ -51,7 +51,7 @@ class App extends React.Component {
             <Route path='/rank/:rank/:name' component={Like}/> */}
           </div>
         </div>
-      </div>
+     
     </Router>
     )
   }

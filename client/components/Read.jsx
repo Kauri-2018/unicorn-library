@@ -1,13 +1,13 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
 
-class Read extends React.Components {
+class Read extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       update: {
         id: -1,
-        status: 0
+        status: 0,
+        like: null
       }
     }
     this.handleAdd = this.handleAdd.bind(this)

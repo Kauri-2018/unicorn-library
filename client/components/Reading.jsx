@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 class Reading extends React.Component {
   constructor (props) {
@@ -37,7 +37,7 @@ class Reading extends React.Component {
               <div key={book.id}>
                 <h3>{book.title}</h3>
                 <button onClick={() => this.handleAdd(book)}>
-                  Read
+                  Add To Read
                 </button>
                 <button>Del</button>
               </div>

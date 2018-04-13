@@ -23715,7 +23715,7 @@ var Read = function Read(props) {
             book.author,
             _react2.default.createElement(
               'button',
-              null,
+              { className: 'btn btn-margin' },
               'Like'
             )
           )
@@ -23851,6 +23851,7 @@ var AddBook = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+
       return _react2.default.createElement(
         'div',
         { className: 'addbook' },
@@ -23985,6 +23986,15 @@ var NavBar = function (_React$Component) {
                         'button',
                         { className: 'btn btn-nav' },
                         'Read'
+                    )
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { href: '/#/Liked' },
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-nav' },
+                        'Liked'
                     )
                 )
             );

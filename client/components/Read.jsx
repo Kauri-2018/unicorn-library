@@ -20,7 +20,7 @@ const Read = (props) => {
               </Link>
               <div className='info-container'>
                 {book.author}
-                <button>Like</button>
+                <button className="btn btn-margin">Like</button>
               </div>
             </li>
           )

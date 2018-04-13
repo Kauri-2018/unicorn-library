@@ -1,5 +1,5 @@
 # Unicorn Library
 
-By Sarah, Tori, Frank, Paul and Kale
+By Sarah, Tori, Frank and Kale
 
 

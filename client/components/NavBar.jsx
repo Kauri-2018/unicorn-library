@@ -15,6 +15,7 @@ class NavBar extends React.Component {
                 <a href="/#/"><button className="btn btn-nav">To Read</button></a>
                 <a href="/#/reading"><button className="btn btn-nav">Reading</button></a>
                 <a href="/#/read"><button className="btn btn-nav">Read</button></a>
+                <a href="/#/Liked"><button className="btn btn-nav">Liked</button></a>
             </div>
         )
     }

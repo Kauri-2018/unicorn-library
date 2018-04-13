@@ -11,7 +11,6 @@ class AddBook extends React.Component {
     this.handleAdd = this.handleAdd.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
-
   handleChange (e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -22,7 +21,9 @@ class AddBook extends React.Component {
     this.props.addToList(this.state)
   }
   render () {
+    
     return (
+      
       <div className="addbook">
         <div className="theformbox">
           <h2>Add a new book</h2>
@@ -42,6 +43,7 @@ class AddBook extends React.Component {
             <button className="btn">Submit</button>
 
           </form>
+          
         </div>
       </div>
     )

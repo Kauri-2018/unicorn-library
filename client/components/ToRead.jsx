@@ -25,12 +25,19 @@ class ToRead extends React.Component {
     this.props.updateStatus(update)
   }
 
+  handleDel (book) {
+    const update = {
+      id: book.id
+    }
+    this.props.deleteBook(update)
+  }
+
   render () {
     // make sure getToReadList called everytime rerender happened
     const toReadList = this.getToReadList(this.props.booksData.books)
     return (
       <div>
-        <h2>Books I want to read:</h2>
+      <h2>Books I want to read: </h2>        
         <ul>
           {toReadList.map(book => {
             return (
@@ -39,7 +46,7 @@ class ToRead extends React.Component {
                 <button onClick={() => this.handleAdd(book)}>
                   Add To Reading
                 </button>
-                <button>Del</button>
+                <button onClick={() => this.handleDel(book)}>Del</button>
               </div>
             )
           })}

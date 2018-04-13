@@ -19693,6 +19693,7 @@ var App = function (_React$Component) {
     _this.state = { booksJson: _books2.default };
     _this.updateStatus = _this.updateStatus.bind(_this);
     _this.addToList = _this.addToList.bind(_this);
+    _this.deleteBook = _this.deleteBook.bind(_this);
     return _this;
   }
 
@@ -19711,6 +19712,15 @@ var App = function (_React$Component) {
         }
       });
       // console.log(booksJson)
+      this.setState({ booksJson: _books2.default });
+    }
+  }, {
+    key: 'deleteBook',
+    value: function deleteBook(targetBook) {
+      var updatedList = _books2.default.books.filter(function (book) {
+        return targetBook.id !== book.id;
+      });
+      _books2.default.books = updatedList;
       this.setState({ booksJson: _books2.default });
     }
   }, {
@@ -19750,7 +19760,10 @@ var App = function (_React$Component) {
                 'div',
                 { className: 'theformbox' },
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
-                    return _react2.default.createElement(_ToRead2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
+                    return _react2.default.createElement(_ToRead2.default, {
+                      booksData: _this2.state.booksJson,
+                      updateStatus: _this2.updateStatus,
+                      deleteBook: _this2.deleteBook });
                   } }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/reading', render: function render() {
                     return _react2.default.createElement(_Reading2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
@@ -23550,6 +23563,14 @@ var ToRead = function (_React$Component) {
       this.props.updateStatus(update);
     }
   }, {
+    key: 'handleDel',
+    value: function handleDel(book) {
+      var update = {
+        id: book.id
+      };
+      this.props.deleteBook(update);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -23562,7 +23583,11 @@ var ToRead = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           null,
+<<<<<<< HEAD
           'Books I want to read:'
+=======
+          'Books I want to read: '
+>>>>>>> todo_branch
         ),
         _react2.default.createElement(
           'ul',
@@ -23585,7 +23610,9 @@ var ToRead = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'button',
-                null,
+                { onClick: function onClick() {
+                    return _this2.handleDel(book);
+                  } },
                 'Del'
               )
             );

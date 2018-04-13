@@ -37,7 +37,7 @@ class Read extends React.Component {
             return (
               <div key={book.id}>
                 <h3>{book.title}</h3>
-                <button onClick={() => this.handleAdd(book)}>
+                <button className="btn btn-margin" onClick={() => this.handleAdd(book)}>
                   Like
                 </button>
               </div>

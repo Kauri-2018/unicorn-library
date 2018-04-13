@@ -52,3 +52,13 @@ input {
 .btn-none {
     border: none;
 }
+
+.navbar {
+    position: relative;
+    display: inline;
+}
+
+.btn-nav {
+    background: lightgray;
+    
+}

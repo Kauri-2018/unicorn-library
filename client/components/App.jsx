@@ -8,6 +8,7 @@ import Read from './Read'
 import Liked from './Liked'
 // import Like from './Like'
 import AddBook from './AddBook'
+import NavBar from './NavBar'
 
 class App extends React.Component {
   constructor (props) {
@@ -41,24 +42,30 @@ class App extends React.Component {
         <div className='app'>
           <h1>Unicorn library</h1>
           <div className='home'>
-
+          <Route path='/' render={
+                  () => {
+                    return <NavBar />
+                  }
+                } />
           <div className="addbook">
-            <Route path='/' render={
-              () => {
-                return <ToRead booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
-              }
-            } />
-            <Route exact path='/reading' render={
-              () => {
-                return <Reading booksData={this.state.booksJson} />
-              }
-            } />
-            <Route exact path='/read' render={
-              () => {
-                return <Read booksData={this.state.booksJson} />
-              }
-            } />
-
+              <div className="theformbox">
+             
+                <Route exact path='/' render={
+                  () => {
+                    return <ToRead booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
+                  }
+                } />
+                <Route exact path='/reading' render={
+                  () => {
+                    return <Reading booksData={this.state.booksJson} />
+                  }
+                } />
+                <Route exact path='/read' render={
+                  () => {
+                    return <Read booksData={this.state.booksJson} />
+                  }
+                } />
+              </div>
             </div>
             <AddBook addToList={this.addToList}/>
           </div>

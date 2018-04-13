@@ -1,32 +1,58 @@
 import React from 'react'
 
-// import books from '../../books.json'
-import {Link} from 'react-router-dom'
+class Liked extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      update: {
+        id: -1,
+        status: 0,
+        like: null
+      }
+    }
+    this.handleAdd = this.handleAdd.bind(this)
+  }
 
-const Liked = (props) => {
-  // const book = props.match.params.id
+  getLikeList (booksArr) {
+    const likeArr = booksArr.filter(book => book.like === true)
+    return likeArr
+  }
 
-  const getBookList = props.booksData.books.filter(book => book.like === true)
+  handleAdd (book) {
+    const update = {
+      id: book.id,
+      status: 3,
+      like: true
+    }
+    this.props.updateStatus(update)
+  }
 
-  return (
-    <div className="books-liked">
-      <h2>Books I liked:</h2>
-      <ul>
-        {getBookList.map(book => {
-          return (
-            <li key={book.id}>
-              <Link to={`/book/${book.title}`}>
+  handleDel (book) {
+    const update = {
+      id: book.id
+    }
+    this.props.deleteBook(update)
+  }
+
+  render () {
+    // make sure getLikeList called everytime rerender happened
+    const likeList = this.getLikeList(this.props.booksData.books)
+    return (
+      <div>
+        <h2>Books I liked: </h2>
+        <ul>
+          {likeList.map(book => {
+            return (
+              <div key={book.id}>
                 <h3>{book.title}</h3>
-              </Link>
-              <div className='info-container'>
-                {book.author}
+                <h5>{book.author}</h5>
               </div>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
 }
 
 export default Liked

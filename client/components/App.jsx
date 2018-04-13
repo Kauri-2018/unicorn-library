@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {booksJson}
     this.updateStatus = this.updateStatus.bind(this)
     this.addToList = this.addToList.bind(this)
+    this.deleteBook = this.deleteBook.bind(this)
   }
 
   // updateData.id and updateData.status passed in
@@ -26,6 +27,12 @@ class App extends React.Component {
       }
     })
     // console.log(booksJson)
+    this.setState({booksJson})
+  }
+
+  deleteBook (targetBook) {
+    const updatedList = booksJson.books.filter(book => targetBook.id !== book.id)
+    booksJson.books = updatedList
     this.setState({booksJson})
   }
 
@@ -52,7 +59,10 @@ class App extends React.Component {
              
                 <Route exact path='/' render={
                   () => {
-                    return <ToRead booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
+                    return <ToRead 
+                      booksData={this.state.booksJson} 
+                      updateStatus={this.updateStatus}
+                      deleteBook={this.deleteBook}/>
                   }
                 } />
                 <Route exact path='/reading' render={

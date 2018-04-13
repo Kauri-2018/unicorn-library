@@ -4,6 +4,7 @@ body {
 }
 input {
     margin: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 3px;
 }
 .addbook {
     margin-top: 1em;
@@ -11,6 +12,10 @@ input {
     border-style: solid;
     border-width: 1px;
     border-radius: 10px;
+}
+
+.hidden{
+    display: none;
 }
 
 .theformbox {
@@ -52,6 +57,9 @@ input {
 .btn-none {
     border: none;
 }
+.btn-margin {
+    margin-left: 1em;
+}
 
 .navbar {
     align-content: center;
@@ -64,5 +72,10 @@ input {
     background: lightgray;
     margin-left: .5%;
     margin-right: .5%;
-    width: 32%;
+    width: 24%;
 }
+
+
+ul {
+    list-style-type: none;
+  }

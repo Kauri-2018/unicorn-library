@@ -30,6 +30,7 @@ class ToRead extends React.Component {
     const toReadList = this.getToReadList(this.props.booksData.books)
     return (
       <div>
+        <h2>Books I want to read:</h2>
         <ul>
           {toReadList.map(book => {
             return (
@@ -41,14 +42,11 @@ class ToRead extends React.Component {
                 <button>Del</button>
               </div>
             )
-            
           })}
         </ul>
       </div>
     )
   }
-  
 }
-
 
 export default ToRead

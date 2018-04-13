@@ -5,7 +5,7 @@
       "title": "Harry Potter",
       "author": "J K Rowling",
       "status": 1,
-      "like": true
+      "like": false
     },
     {
       "id": 2,
@@ -19,14 +19,14 @@
       "title": "Ulysses",
       "author": "James Joyce",
       "status": 3,
-      "like": true
+      "like": false
     },
     {
       "id": 4,
       "title": "Carpe Jugulum",
       "author": "Terry Pratchett",
       "status": 1,
-      "like": true
+      "like": false
     },
     {
       "id": 5,
@@ -40,7 +40,7 @@
       "title": "Booky Wook",
       "author": "Russell Brand",
       "status": 3,
-      "like": true
+      "like": false
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "title": "The Golden Compass",
       "author": "Philip Pullman",
       "status": 2,
-      "like": true
+      "like": false
     },
     {
       "id": 9,
@@ -68,7 +68,7 @@
       "title": "The Kite Runner",
       "author": "Khaled Hosseini",
       "status": 1,
-      "like": true
+      "like": false
     }
   ]
 }

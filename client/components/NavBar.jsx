@@ -12,10 +12,9 @@ class NavBar extends React.Component {
     render () {
         return (
             <div className="navbar">
-                <button className="btn btn-nav">Home</button>
-                <button className="btn btn-nav">To Read</button>
-                <button className="btn btn-nav">Reading</button>
-                <button className="btn btn-nav">Read</button>
+                <a href="/#/"><button className="btn btn-nav">To Read</button></a>
+                <a href="/#/reading"><button className="btn btn-nav">Reading</button></a>
+                <a href="/#/read"><button className="btn btn-nav">Read</button></a>
             </div>
         )
     }

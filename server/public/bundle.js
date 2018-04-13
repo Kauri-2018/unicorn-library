@@ -23961,24 +23961,31 @@ var NavBar = function (_React$Component) {
                 'div',
                 { className: 'navbar' },
                 _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-nav' },
-                    'Home'
+                    'a',
+                    { href: '/#/' },
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-nav' },
+                        'To Read'
+                    )
                 ),
                 _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-nav' },
-                    'To Read'
+                    'a',
+                    { href: '/#/reading' },
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-nav' },
+                        'Reading'
+                    )
                 ),
                 _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-nav' },
-                    'Reading'
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-nav' },
-                    'Read'
+                    'a',
+                    { href: '/#/read' },
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-nav' },
+                        'Read'
+                    )
                 )
             );
         }

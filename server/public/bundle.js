@@ -23583,11 +23583,7 @@ var ToRead = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           null,
-<<<<<<< HEAD
-          'Books I want to read:'
-=======
           'Books I want to read: '
->>>>>>> todo_branch
         ),
         _react2.default.createElement(
           'ul',

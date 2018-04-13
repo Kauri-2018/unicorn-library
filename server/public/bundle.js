@@ -23583,11 +23583,7 @@ var ToRead = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           null,
-<<<<<<< HEAD
-          'Books I want to read:'
-=======
           'Books I want to read: '
->>>>>>> todo_branch
         ),
         _react2.default.createElement(
           'ul',
@@ -23758,65 +23754,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-<<<<<<< HEAD
-var Read = function Read(props) {
-  // const book = props.match.params.id
-
-  var getReadList = props.booksData.books.filter(function (book) {
-    return book.status === 3;
-  });
-
-  return _react2.default.createElement(
-    'div',
-    { className: 'books-read' },
-    _react2.default.createElement(
-      'h2',
-      null,
-      'Books I have read:'
-    ),
-    _react2.default.createElement(
-      'ul',
-      null,
-      getReadList.map(function (book) {
-        return _react2.default.createElement(
-          'li',
-          { key: book.id },
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/book/' + book.title },
-            _react2.default.createElement(
-              'h3',
-              null,
-              book.title
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'info-container' },
-            book.author,
-            _react2.default.createElement(
-              'button',
-              { className: 'btn btn-margin' },
-              'Like'
-            )
-          )
-        );
-      })
-    )
-  );
-};
-
-// import books from '../../books.json'
-exports.default = Read;
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-=======
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
->>>>>>> bd758dd5d4b98c0b4e376cf0c73467ff80d76354
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
@@ -23887,7 +23825,7 @@ var Read = function (_React$Component) {
               ),
               _react2.default.createElement(
                 "button",
-                { onClick: function onClick() {
+                { className: "btn btn-margin", onClick: function onClick() {
                     return _this2.handleAdd(book);
                   } },
                 "Like"

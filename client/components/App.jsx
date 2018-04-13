@@ -14,16 +14,25 @@ class App extends React.Component {
     super(props)
     this.state = {booksJson}
     this.updateStatus = this.updateStatus.bind(this)
+    this.addToList = this.addToList.bind(this)
   }
+
   // updateData.id and updateData.status passed in
   updateStatus (targetBook) {
     booksJson.books.forEach(book => {
-      if(book.id === targetBook.id) {
+      if (book.id === targetBook.id) {
         book.status = targetBook.status
       }
     })
     // console.log(booksJson)
     this.setState({booksJson})
+  }
+
+  addToList (newBook) {
+    newBook.id = this.state.booksJson.books.length + 1
+    this.setState({
+      booksJson: [...this.state.booksJson.books, newBook]
+    })
   }
 
   render () {
@@ -52,11 +61,10 @@ class App extends React.Component {
                 return <Liked booksData={this.state.booksJson} />
               }
             } />
-
+            <AddBook addToList={this.addToList}/>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
     )
   }
 }

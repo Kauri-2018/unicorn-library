@@ -1,9 +1,53 @@
 import React from 'react'
 
-const ToRead = (props) => {
-  return (
-    <p>{props.booksData.books[0].title}</p>
-  )
+class ToRead extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      update: {
+        id: -1,
+        status: 0
+      }
+    }
+    this.handleAdd = this.handleAdd.bind(this)
+  }
+
+  getToReadList (booksArr) {
+    const toReadArr = booksArr.filter(book => book.status === 1)
+    return toReadArr
+  }
+
+  handleAdd (book) {
+    const update = {
+      id: book.id,
+      status: 2
+    }
+    this.props.updateStatus(update)
+  }
+
+  render () {
+    // make sure getToReadList called everytime rerender happened
+    const toReadList = this.getToReadList(this.props.booksData.books)
+    return (
+      <div>
+        <ul>
+          {toReadList.map(book => {
+            return (
+              <div key={book.id}>
+                <h3>{book.title}</h3>
+                <button onClick={() => this.handleAdd(book)}>
+                  Add To Reading
+                </button>
+                <button>Del</button>
+              </div>
+            )
+            
+          })}
+        </ul>
+      </div>
+    )
+  }
+  
 }
 
 

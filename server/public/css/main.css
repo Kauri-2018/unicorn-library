@@ -6,6 +6,7 @@ input {
     margin: 0.5em 0.5em 0.5em 0.5em;
 }
 .addbook {
+    margin-top: 1em;
     border: black;
     border-style: solid;
     border-width: 1px;
@@ -50,4 +51,14 @@ input {
 
 .btn-none {
     border: none;
+}
+
+.navbar {
+    position: relative;
+    display: inline;
+}
+
+.btn-nav {
+    background: lightgray;
+    
 }

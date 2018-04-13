@@ -19795,7 +19795,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'home' },
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/', render: function render() {
+            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
                 return _react2.default.createElement(_ToRead2.default, { booksData: _this2.state.booksJson, updateStatus: _this2.updateStatus });
               } }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/reading', render: function render() {

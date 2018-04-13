@@ -41,7 +41,7 @@ class App extends React.Component {
         <div className='app'>
           <h1>Unicorn library</h1>
           <div className='home'>
-            <Route path='/' render={
+            <Route exact path='/' render={
               () => {
                 return <ToRead booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
               }

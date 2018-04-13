@@ -54,11 +54,15 @@ input {
 }
 
 .navbar {
+    align-content: center;
     position: relative;
     display: inline;
 }
 
 .btn-nav {
-    background: lightgray;
     
+    background: lightgray;
+    margin-left: .5%;
+    margin-right: .5%;
+    width: 32%;
 }

@@ -27,6 +27,7 @@ class AddBook extends React.Component {
         return (
             <div className="addbook">
             <div className="theformbox">
+            <h2>Add a new book</h2>
                 <form onSubmit={this.handleAdd}>
                     Title: <input name='title' onChange={this.handleChange} />
                     Author: <input name='author' onChange={this.handleChange} />

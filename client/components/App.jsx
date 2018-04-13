@@ -12,8 +12,15 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {booksJson}
+    this.addToList = this.addToList.bind(this)
   }
 
+  addToList (newBook) {
+    newBook.id = this.state.booksJson.books.length +1
+    this.setState({
+      booksJson: [...this.state.booksJson.books, newBook]
+    })
+  }
 
   render () {
     return (
@@ -39,9 +46,9 @@ class App extends React.Component {
             {/* <Route exact path='/' component={Reading}/>
             <Route path='/list/:rank' component={Read}/>
             <Route path='/rank/:rank/:name' component={Like}/> */}
+            <AddBook addToList={this.addToList}/>
           </div>
         </div>
-      </div>
     </Router>
     )
   }

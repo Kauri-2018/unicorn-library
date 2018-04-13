@@ -19756,10 +19756,10 @@ var App = function (_React$Component) {
               } }),
             _react2.default.createElement(
               'div',
-              { className: 'addbook' },
+              { className: 'body-container' },
               _react2.default.createElement(
                 'div',
-                { className: 'theformbox' },
+                { className: 'body-box' },
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
                     return _react2.default.createElement(_ToRead2.default, {
                       booksData: _this2.state.booksJson,

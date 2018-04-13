@@ -20,8 +20,8 @@ const Reading = (props) => {
               </Link>
               <div className='info-container'>
                 {book.author}
-                <button onClick={onClick}>Read</button>
-                <button onClick={onClick}>Delete</button>
+                {/* <button onClick={onClick}>Read</button>
+                <button onClick={onClick}>Delete</button> */}
               </div>
             </li>
           )

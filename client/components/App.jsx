@@ -41,6 +41,8 @@ class App extends React.Component {
         <div className='app'>
           <h1>Unicorn library</h1>
           <div className='home'>
+
+          <div className="addbook">
             <Route path='/' render={
               () => {
                 return <ToRead booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
@@ -56,6 +58,8 @@ class App extends React.Component {
                 return <Read booksData={this.state.booksJson} />
               }
             } />
+
+            </div>
             {/* <Route exact path='/' component={Reading}/>
             <Route path='/list/:rank' component={Read}/>
             <Route path='/rank/:rank/:name' component={Like}/> */}

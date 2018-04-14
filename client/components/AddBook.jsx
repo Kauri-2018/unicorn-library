@@ -10,12 +10,22 @@ class AddBook extends React.Component {
     }
     this.handleAdd = this.handleAdd.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleNumChange = this.handleNumChange.bind(this)
   }
+  
   handleChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
+
+  handleNumChange (e) {
+    this.setState({
+      status: Number(e.target.value)
+    })
+
+  }
+
   handleAdd (e) {
     e.preventDefault()
     this.props.addToList(this.state)
@@ -23,27 +33,24 @@ class AddBook extends React.Component {
   render () {
     
     return (
-      
       <div className="addbook">
         <div className="theformbox">
+          <p>status: {this.state.status}</p>      
+          <p>title: {this.state.title}</p>      
+          <p>author: {this.state.author}</p>      
+          <p>status type: {typeof this.state.status}</p>      
           <h2>Add a new book</h2>
           <form onSubmit={this.handleAdd}>
-                    Title: <input name='title' onChange={this.handleChange} />
-                    Author: <input name='author' onChange={this.handleChange} />
-
-            <div className="dropdown">
-              <button className="btn">Status</button>
-              <div className="dropdown-content">
-                <button className="btn-none" name="status" value="1" href="#" onClick={this.handleChange}>To Read</button>
-                <button className="btn-none" name="status" value="2" href="#"onClick={this.handleChange}>Reading</button>
-                <button className="btn-none" name="status" value="3" href="#" onClick={this.handleChange}>Read</button>
-              </div>
-
-            </div>
-            <button className="btn">Submit</button>
-
+            Title: <input name='title' onChange={this.handleChange} />
+            Author: <input name='author' onChange={this.handleChange} />
+            <select className="dropdown" onChange={this.handleNumChange}>
+                <option className="btn-none" name="status" value="0" href="#" >Status</option>
+                <option className="btn-none" name="status" value="1" href="#" >To Read</option>
+                <option className="btn-none" name="status" value="2" href="#" >Reading</option>
+                <option className="btn-none" name="status" value="3" href="#" >Read</option>
+            </select>
+            <button type="submit" className="btn">Submit</button>
           </form>
-          
         </div>
       </div>
     )

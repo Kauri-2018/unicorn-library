@@ -26,6 +26,13 @@ class Reading extends React.Component {
     this.props.updateStatus(update)
   }
 
+  handleDel (book) {
+    const update = {
+      id: book.id
+    }
+    this.props.deleteBook(update)
+  }
+
   render () {
     const readingList = this.getReadingList(this.props.booksData.books)
     return (
@@ -36,10 +43,11 @@ class Reading extends React.Component {
             return (
               <div key={book.id}>
                 <h3>{book.title}</h3>
+                <h5>Author: {book.author}</h5>
                 <button onClick={() => this.handleAdd(book)}>
                   Add To Read
                 </button>
-                <button>Del</button>
+                <button onClick={() => this.handleDel(book)}>Del</button>
               </div>
             )
           })}

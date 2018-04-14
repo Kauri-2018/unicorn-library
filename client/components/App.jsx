@@ -5,8 +5,7 @@ import booksJson from '../../books.json'
 import ToRead from './ToRead'
 import Reading from './Reading'
 import Read from './Read'
-// import Liked from './Liked'
-// import Like from './Like'
+import Liked from './Liked'
 import AddBook from './AddBook'
 import NavBar from './NavBar'
 
@@ -40,9 +39,11 @@ class App extends React.Component {
   }
 
   addToList (newBook) {
-    newBook.id = this.state.booksJson.books.length + 1
+   newBook.id = this.state.booksJson.books.length + 1
     this.setState({
-      booksJson: [...this.state.booksJson.books, newBook]
+      booksJson: {
+        books: [...this.state.booksJson.books, newBook]
+      }
     })
   }
 
@@ -57,25 +58,33 @@ class App extends React.Component {
                 return <NavBar />
               }
             } />
-            <div className="addbook">
-              <div className="theformbox">
+            <div className="body-container">
+              <div className="body-box">
 
                 <Route exact path='/' render={
                   () => {
-                    return <ToRead 
-                      booksData={this.state.booksJson} 
+                    return <ToRead
+                      booksData={this.state.booksJson}
                       updateStatus={this.updateStatus}
                       deleteBook={this.deleteBook}/>
                   }
                 } />
                 <Route exact path='/reading' render={
                   () => {
-                    return <Reading booksData={this.state.booksJson} updateStatus={this.updateStatus} />
+                    return <Reading
+                      booksData={this.state.booksJson}
+                      updateStatus={this.updateStatus}
+                      deleteBook={this.deleteBook} />
                   }
                 } />
                 <Route exact path='/read' render={
                   () => {
                     return <Read booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
+                  }
+                } />
+                <Route exact path='/liked' render={
+                  () => {
+                    return <Liked booksData={this.state.booksJson} updateStatus={this.updateStatus}/>
                   }
                 } />
               </div>

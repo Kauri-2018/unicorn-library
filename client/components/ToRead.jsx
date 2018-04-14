@@ -37,12 +37,13 @@ class ToRead extends React.Component {
     const toReadList = this.getToReadList(this.props.booksData.books)
     return (
       <div>
-      <h2>Books I want to read: </h2>        
+        <h2>Books I want to read: </h2>
         <ul>
           {toReadList.map(book => {
             return (
               <div key={book.id}>
                 <h3>{book.title}</h3>
+                <h5>Author: {book.author}</h5>
                 <button onClick={() => this.handleAdd(book)}>
                   Add To Reading
                 </button>

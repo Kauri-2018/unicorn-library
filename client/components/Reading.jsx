@@ -1,5 +1,6 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+
+import BookInfo from './BookInfo'
 
 class Reading extends React.Component {
   constructor (props) {
@@ -8,9 +9,12 @@ class Reading extends React.Component {
       update: {
         id: -1,
         status: 0
-      }
+      },
+      selectedBook: 0      
     }
     this.handleAdd = this.handleAdd.bind(this)
+    this.onSelect = this.onSelect.bind(this)
+    
   }
 
   getReadingList (booksArr) {
@@ -33,8 +37,15 @@ class Reading extends React.Component {
     this.props.deleteBook(update)
   }
 
+  onSelect (id) {
+    this.setState({
+      selectedBook: id
+    })
+  }
+
   render () {
     const readingList = this.getReadingList(this.props.booksData.books)
+    const selectedBook = this.state.selectedBook    
     return (
       <div className="books-reading">
         <h2>Books I am reading:</h2>
@@ -42,8 +53,12 @@ class Reading extends React.Component {
           {readingList.map(book => {
             return (
               <div key={book.id}>
-                <h3>{book.title}</h3>
-                <h5>Author: {book.author}</h5>
+                <h3  onClick={() => this.onSelect(book.id)}>{book.title}</h3>
+                <BookInfo 
+                  selected={book.id  == selectedBook}
+                  author={book.author}
+                  id={book.id}
+                />
                 <button onClick={() => this.handleAdd(book)}>
                   Add To Read
                 </button>

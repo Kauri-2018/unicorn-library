@@ -35,10 +35,11 @@ class AddBook extends React.Component {
     return (
       <div className="addbook">
         <div className="theformbox">
-          <p>status: {this.state.status}</p>      
+          {/* test use */}
+          {/* <p>status: {this.state.status}</p>      
           <p>title: {this.state.title}</p>      
           <p>author: {this.state.author}</p>      
-          <p>status type: {typeof this.state.status}</p>      
+          <p>status type: {typeof this.state.status}</p>       */}
           <h2>Add a new book</h2>
           <form onSubmit={this.handleAdd}>
             Title: <input name='title' onChange={this.handleChange} />

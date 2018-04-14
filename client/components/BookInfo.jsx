@@ -1,17 +1,13 @@
 import React from 'react'
 
-class BookInfo extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-
-    }
-  }
-
-  render () {
-    return <p>Hi</p>
-  }
-
+const BookInfo = (props) => {
+  const className = props.selected ? "" : "hidden"
+	return (
+    <div>
+      <h5 className={className}>Book Id: {props.id}</h5>
+      <h5 className={className}>Author: {props.author}</h5>
+    </div>
+  )
 }
 
 export default BookInfo

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import BookInfo from './BookInfo'
+
 class ToRead extends React.Component {
   constructor (props) {
     super(props)
@@ -52,8 +54,8 @@ class ToRead extends React.Component {
           {toReadList.map(book => {
             return (
               <div key={book.id}>
-                <h3 className={book.id} onClick={() => this.onSelect(book.id)}>{book.title}</h3>
-                <AuthorInfo 
+                <h3 onClick={() => this.onSelect(book.id)}>{book.title}</h3>
+                <BookInfo 
                   selected={book.id  == selectedBook}
                   author={book.author}
                   id={book.id}
@@ -72,12 +74,6 @@ class ToRead extends React.Component {
   }
 }
 
-const AuthorInfo = (props) => {
-  const onSelect = (e) => {
-  	props.onSelect(e.target.id);
-  }
-  const className = props.selected ? "" : "hidden";	
-	return <h5 className={className} id={props.id} onClick={onSelect}>Author: {props.author}</h5>
-}
+
 
 export default ToRead
